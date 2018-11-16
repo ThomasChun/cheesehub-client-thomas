@@ -1,8 +1,3 @@
-// export const FETCH_CHEESES = 'FETCH_CHEESES';
-// export const fetchCheeses = () => ({
-//   type: FETCH_CHEESES
-// });
-
 export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST';
 export const fetchCheesesRequest = () => ({
   type: FETCH_CHEESES_REQUEST
@@ -28,8 +23,8 @@ export const fetchCheeses = () => dispatch => {
       return res.json();
     })
     .then(data =>
-      dispatch(fetchCheesesSuccess())
+      dispatch(fetchCheesesSuccess(data))
     ).catch(err => 
-      dispatch(fetchCheesesError())
+      dispatch(fetchCheesesError(err))
     );
 }
