@@ -19,11 +19,6 @@ class CheeseList extends React.Component {
 
 const mapStateToProps = state => ({
   cheeses: state.cheeses 
-  // [
-  //   'Bath Blue',
-  //   'Barkham Blue',
-  //   'Buxton Blue'
-  // ]
 });
 
 export default connect(mapStateToProps)(CheeseList);

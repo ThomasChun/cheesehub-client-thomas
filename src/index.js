@@ -12,7 +12,7 @@ const store = createStore(cheesesReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
-    <CheeseList /*cheeses={['Bath Blue', 'Barkham Blue', 'Buxton Blue']}*//>
+    <CheeseList />
   </Provider>, 
   document.getElementById('root')
 );
