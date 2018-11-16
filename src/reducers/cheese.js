@@ -13,7 +13,8 @@ const initialState = {
 export default function reducer(state=initialState, action) {
   if (action.type === FETCH_CHEESES_REQUEST) {
     return Object.assign({}, state, {
-      loading: true
+      loading: true,
+      error: null
     })
   }
   else if (action.type === FETCH_CHEESES_SUCCESS) {

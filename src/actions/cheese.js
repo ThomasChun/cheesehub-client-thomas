@@ -4,18 +4,20 @@ export const fetchCheesesRequest = () => ({
 });
 
 export const FETCH_CHEESES_SUCCESS = 'FETCH_CHEESES_SUCCESS';
-export const fetchCheesesSuccess = () => ({
-  type: FETCH_CHEESES_SUCCESS
+export const fetchCheesesSuccess = (cheeses) => ({
+  type: FETCH_CHEESES_SUCCESS,
+  cheeses,
 });
 
 export const FETCH_CHEESES_ERROR = 'FETCH_CHEESES_ERROR';
-export const fetchCheesesError = () => ({
-  type: FETCH_CHEESES_ERROR
+export const fetchCheesesError = (error) => ({
+  type: FETCH_CHEESES_ERROR,
+  error,
 });
 
 export const fetchCheeses = () => dispatch => {
   dispatch(fetchCheesesRequest());
-  return fetch('/api/cheeses')
+  return fetch('http://localhost:8080/api/cheeses/')
     .then(res => {
       if (!res.ok) {
         throw new Error(res.statusText);
