@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import CheeseList from './components/cheese-list';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import cheesesReducer from './reducers/cheese';
+import {Provider} from 'react-redux';
 
-
+const store = createStore(cheesesReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <CheeseList cheeses={['Bath Blue', 'Barkham Blue', 'Buxton Blue']}/>, 
+  <Provider store={store}>
+    <CheeseList /*cheeses={['Bath Blue', 'Barkham Blue', 'Buxton Blue']}*//>
+  </Provider>, 
   document.getElementById('root')
 );
 
